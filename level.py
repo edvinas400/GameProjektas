@@ -79,7 +79,7 @@ class Level:
                             elif col == "261":
                                 portal = pygame.sprite.Sprite(self.portals)
                                 portal.image = pygame.Surface((64, 20))
-                                portal.rect = portal.image.get_rect(topleft=(x+10, y+2))
+                                portal.rect = portal.image.get_rect(topleft=(x + 10, y + 2))
 
                         if type == 'walls':
                             if col == "5":
@@ -92,6 +92,7 @@ class Level:
                                 Object((x, y), [self.obstacles], 'down_right')
                             else:
                                 Object((x, y), [self.obstacles], 'full')
+
                         if type == 'objects':
                             pic = pictures["objects"][int(col)]
                             match col:
@@ -216,7 +217,7 @@ class Level:
             else:
                 self.stage = "floor_done"
             stats, level, xp, lvlup_points, health, mana = [self.player.stats, self.player.level, self.player.xp,
-                                                                   self.player.lvlup_points, self.player.health, self.player.mana]
+                                                            self.player.lvlup_points, self.player.health, self.player.mana]
             self.update()
             self.game.level = self
             self.player.stats = stats
