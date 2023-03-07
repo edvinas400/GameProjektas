@@ -28,7 +28,8 @@ class Game:
             if not self.started:
                 self.menu.display(self)
             else:
-                self.level.run()
+                if self.level:
+                    self.level.run()
             if self.controls_on:
                 self.controls.display()
             for event in pygame.event.get():

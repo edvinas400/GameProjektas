@@ -34,4 +34,4 @@ class Object(pygame.sprite.Sprite):
             case "big_trees":
                 self.hitbox.update(self.hitbox.x + 82, self.hitbox.y + 245, 147, 50)
             case "house":
-                self.hitbox.update(self.hitbox.x + 20, self.hitbox.y + 192, 320, 115)
+                self.hitbox.update(self.hitbox.x + 15, self.hitbox.y + 132, 330, 175)

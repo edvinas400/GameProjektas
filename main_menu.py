@@ -39,11 +39,13 @@ class MainMenu:
             if button.check_click():
                 sounds["click"].play()
                 if self.list[id] == "NEW GAME":
-                    game.level = Level(game)
+                    game.level = Level(game, "floor_done")
                     game.started = True
                     town_music()
                 elif self.list[id] == "CONTINUE":
-                    game.level = Level(game)
+                    with open('saves/save.pkl', 'rb') as inp:
+                        stage = pickle.load(inp)[7]
+                    game.level = Level(game, stage)
                     load(game.level)
                     game.started = True
                     town_music()

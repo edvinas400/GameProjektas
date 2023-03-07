@@ -2,13 +2,13 @@ from settings import *
 
 
 class CameraGroup(pygame.sprite.Group):
-    def __init__(self):
+    def __init__(self, stage):
         super().__init__()
         self.display = pygame.display.get_surface()
         self.halfw = WIDTH // 2
         self.halfh = HEIGHT // 2
         self.off = pygame.math.Vector2()
-        self.floor_image = pygame.image.load("pictures/maps/bigmapasfinal.png").convert()
+        self.floor_image = pygame.image.load(f"pictures/maps/{stage}.png").convert()
         self.floor_rect = self.floor_image.get_rect(topleft=(0, 0))
 
     def enemy_update(self, player):
@@ -30,6 +30,7 @@ class CameraGroup(pygame.sprite.Group):
         self.off.x = player.rect.centerx - self.halfw
         self.off.y = player.rect.centery - self.halfh
         floor_position = self.floor_rect.topleft - self.off
+        pygame.display.get_surface().fill("black")
         self.display.blit(self.floor_image, floor_position)
 
         for object in sorted(self.sprites(), key=self.object_sort):

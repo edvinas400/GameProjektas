@@ -15,21 +15,23 @@ from game_over import GameOver
 
 
 class Level:
-    def __init__(self, game):
+    def __init__(self, game, stage):
         self.game = game
+        self.stage = stage
         self.game_paused = False
         self.menu_window = False
         self.stat_window = False
         self.controls_window = False
         self.display = pygame.display.get_surface()
-        self.visible_stuff = CameraGroup()
+        self.visible_stuff = CameraGroup(self.stage)
         self.obstacles = pygame.sprite.Group()
+        self.portals = pygame.sprite.Group()
         self.player_attackables = pygame.sprite.Group()
         self.player_attacks = pygame.sprite.Group()
         self.enemies = pygame.sprite.Group()
         self.enemy_weapons = pygame.sprite.Group()
         self.enemy_projectiles = pygame.sprite.Group()
-        self.map()
+        self.map(self.stage)
         self.hud = HUD()
         self.levelup = LevelUp(self.player)
         self.menu = Menu(self)
@@ -40,11 +42,11 @@ class Level:
         self.animation_player = ParticlePlayer()
         self.magic_player = Magic(self.animation_player)
 
-    def map(self):
+    def map(self, name):
         levels = {
-            "walls": import_layout("csv/floor_done_walls.csv"),
-            "objects": import_layout("csv/floor_done_objects.csv"),
-            "creatures": import_layout("csv/floor_done_creatures.csv"),
+            "walls": import_layout(f"csv/{name}_walls.csv"),
+            "objects": import_layout(f"csv/{name}_objects.csv"),
+            "creatures": import_layout(f"csv/{name}_creatures.csv"),
 
         }
         pictures = {
@@ -74,6 +76,11 @@ class Level:
                                        [self.visible_stuff, self.player_attackables, self.enemies],
                                        self.obstacles, self.enemy_attack,
                                        self.enemy_attack_delete, self.death_particles)
+                            elif col == "261":
+                                portal = pygame.sprite.Sprite(self.portals)
+                                portal.image = pygame.Surface((64, 20))
+                                portal.rect = portal.image.get_rect(topleft=(x+10, y+2))
+
                         if type == 'walls':
                             if col == "5":
                                 Object((x, y), [self.obstacles], 'up_right')
@@ -198,7 +205,30 @@ class Level:
         self.stat_window = False
         self.controls_window = False
 
+    def update(self):
+        self.__init__(self.game, self.stage)
+
+    def change_location(self):
+        tps = pygame.sprite.spritecollide(self.player, self.portals, False)
+        if tps:
+            if self.stage == "floor_done":
+                self.stage = "room"
+            else:
+                self.stage = "floor_done"
+            stats, level, xp, lvlup_points, health, mana = [self.player.stats, self.player.level, self.player.xp,
+                                                                   self.player.lvlup_points, self.player.health, self.player.mana]
+            self.update()
+            self.game.level = self
+            self.player.stats = stats
+            self.player.level = level
+            self.player.xp = xp
+            self.player.lvlup_points = lvlup_points
+            self.player.health = health
+            self.player.mana = mana
+            del tps
+
     def run(self):
+        self.change_location()
         self.visible_stuff.camera_draw(self.player)
         self.hud.display(self.player)
         if self.game_paused:

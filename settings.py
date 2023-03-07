@@ -95,13 +95,13 @@ def folder_content(path):
 def save(level):
     with open('saves/save.pkl', 'wb') as outp:
         save = [level.player.hitbox, level.player.stats, level.player.level, level.player.xp,
-                level.player.lvlup_points, level.player.health, level.player.mana]
+                level.player.lvlup_points, level.player.health, level.player.mana, level.stage]
         pickle.dump(save, outp, pickle.HIGHEST_PROTOCOL)
 
 
 def load(game):
     with open('saves/save.pkl', 'rb') as inp:
-        hitbox, stats, level, xp, lvlup_points, health, mana = pickle.load(inp)
+        hitbox, stats, level, xp, lvlup_points, health, mana, stage = pickle.load(inp)
         game.player.hitbox = hitbox
         game.player.stats = stats
         game.player.level = level
@@ -109,6 +109,8 @@ def load(game):
         game.player.lvlup_points = lvlup_points
         game.player.health = health
         game.player.mana = mana
+        game.stage = stage
+        return stage
 
 
 def float(amplitude, freq):

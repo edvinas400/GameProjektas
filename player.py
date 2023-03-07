@@ -11,7 +11,7 @@ class Player(Creature):
         self.death_particles = death_particles
         self.image = pygame.image.load("pictures/player2/down_still/1.png").convert_alpha()
         self.rect = self.image.get_rect(topleft=position)
-        self.hitbox = self.rect.inflate(-6, -31)
+        self.hitbox = self.rect.inflate(-8, -31)
         self.obstacles = obstacles
         self.player_images()
 

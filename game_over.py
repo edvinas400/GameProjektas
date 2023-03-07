@@ -39,7 +39,8 @@ class GameOver(Menu):
                     pygame.time.delay(300)
                     menu_music()
                 elif self.list[id] == "load  last  save":
-                    level.player.revive()
+                    level.stage = load(level)
+                    level.update()
                     load(level)
                     pygame.time.delay(700)
                     town_music()
