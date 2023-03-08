@@ -14,8 +14,8 @@ class Enemy2(Creature):
         self.obstacles = obstacles
 
         # stats
-        self.weapon = "bone"
         self.name = name
+        self.weapon = enemy_info[name]["attack_type"]
         self.stats = enemy_info[name]
         self.hp = self.stats["health"]
 
@@ -126,7 +126,7 @@ class Enemy2(Creature):
             player.xp += self.stats["xp"]
             player.check_lvl_up()
             self.kill()
-            sounds["skeleton"].play()
+            sounds[self.name].play()
             self.attack_delete()
 
     def update(self):

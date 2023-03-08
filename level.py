@@ -76,10 +76,32 @@ class Level:
                                        [self.visible_stuff, self.player_attackables, self.enemies],
                                        self.obstacles, self.enemy_attack,
                                        self.enemy_attack_delete, self.death_particles)
+                            elif col == "9":
+                                Enemy2("knight", (x, y),
+                                       [self.visible_stuff, self.player_attackables, self.enemies],
+                                       self.obstacles, self.enemy_attack,
+                                       self.enemy_attack_delete, self.death_particles)
+                            # portals
                             elif col == "261":
-                                portal = pygame.sprite.Sprite(self.portals)
+                                portal = pygame.sprite.Sprite()
                                 portal.image = pygame.Surface((64, 20))
                                 portal.rect = portal.image.get_rect(topleft=(x + 10, y + 2))
+                                portal.name = "room"
+                                self.portals.add(portal)
+
+                            elif col == "267":
+                                portal = pygame.sprite.Sprite()
+                                portal.image = pygame.Surface((64, 20))
+                                portal.rect = portal.image.get_rect(topleft=(x + 10, y + 2))
+                                portal.name = "cave"
+                                self.portals.add(portal)
+
+                            elif col == "271":
+                                portal = pygame.sprite.Sprite()
+                                portal.image = pygame.Surface((64, 40))
+                                portal.rect = portal.image.get_rect(topleft=(x, y + 4))
+                                portal.name = "cave_exit"
+                                self.portals.add(portal)
 
                         if type == 'walls':
                             if col == "5":
@@ -135,8 +157,8 @@ class Level:
             if self.player.health <= 0:
                 self.player.health = 0
             self.player.vulnerable = False
-            if attack_type == "bone":
-                sounds["bone"].play()
+            if attack_type in ["bone", "swordy"]:
+                sounds[attack_type].play()
             self.player.hurt_time = pygame.time.get_ticks()
             self.animation_player.create_particles(attack_type, self.player.rect.center,
                                                    [self.visible_stuff])
@@ -210,23 +232,43 @@ class Level:
         self.__init__(self.game, self.stage)
 
     def change_location(self):
-        tps = pygame.sprite.spritecollide(self.player, self.portals, False)
-        if tps:
+        last_stage = None
+        collisions = pygame.sprite.spritecollide(self.player, self.portals, False)
+        for collision in collisions:
             if self.stage == "floor_done":
-                self.stage = "room"
-            else:
-                self.stage = "floor_done"
-            stats, level, xp, lvlup_points, health, mana = [self.player.stats, self.player.level, self.player.xp,
-                                                            self.player.lvlup_points, self.player.health, self.player.mana]
+                if collision.name == "room":
+                    self.stage = "room"
+                elif collision.name == "cave":
+                    self.stage = "cave"
+            elif self.stage == "room":
+                if collision.name == "room":
+                    last_stage = "room"
+                    self.stage = "floor_done"
+            elif self.stage == "cave":
+                if collision.name == "cave_exit":
+                    last_stage = "cave"
+                    self.stage = "floor_done"
+
+            stats, level, xp, lvlup_points, health, mana, weapon_id, spell_id = [self.player.stats, self.player.level,
+                                                                                        self.player.xp,
+            self.player.lvlup_points, self.player.health, self.player.mana,  self.player.weapon_id, self.player.spell_id]
             self.update()
             self.game.level = self
+            self.player.weapon_id = weapon_id
+            self.player.spell_id = spell_id
+            self.player.weapon = list(weapon_info.keys())[weapon_id]
+            self.player.spell = list(spell_info.keys())[spell_id]
             self.player.stats = stats
             self.player.level = level
             self.player.xp = xp
             self.player.lvlup_points = lvlup_points
             self.player.health = health
             self.player.mana = mana
-            del tps
+
+            if self.stage == "floor_done" and last_stage:
+                self.player.hitbox.x = exit_coordinates[last_stage][0]
+                self.player.hitbox.y = exit_coordinates[last_stage][1]
+
 
     def run(self):
         self.change_location()

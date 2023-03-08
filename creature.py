@@ -1,4 +1,3 @@
-import math
 from settings import *
 
 
@@ -45,7 +44,6 @@ class Creature(pygame.sprite.Sprite):
 
     def take_damage(self, player, attack_type):
         if self.vulnerable:
-            self.direction = self.distance_direction_get(player)[1]
             if attack_type == "weapon":
                 self.hp -= player.stats["attack"] + weapon_info[player.weapon]["damage"]
             else:

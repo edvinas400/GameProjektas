@@ -32,13 +32,16 @@ class ParticlePlayer:
             "flick": folder_content("pictures/particles/flick"),
 
             "bone": folder_content("pictures/particles/slash"),
+            "swordy": folder_content("pictures/particles/slash"),
             "claw": folder_content("pictures/particles/claw"),
             "ball": folder_content("pictures/particles/fire/fire"),
 
             "bigraccoon": folder_content("pictures/particles/smokehuge"),
             "bigfrog": folder_content("pictures/particles/smokebig"),
             "skeleton": folder_content("pictures/particles/deadbones"),
-            "player": folder_content("pictures/particles/deadplayer")
+            "player": folder_content("pictures/particles/deadplayer"),
+            "knight": folder_content("pictures/particles/deadknight"),
+
         }
 
     def create_particles(self, type, position, groups):

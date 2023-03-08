@@ -33,7 +33,6 @@ class HUD:
         text_rect = text.get_rect(center=self.icon_rect.center + pygame.math.Vector2(-17, 31))
         self.screen.blit(text, text_rect)
 
-
     def selection(self, x, y, player):
         pygame.draw.circle(self.screen, BOX_COLOR, (x, y), 38)
         if not player.weapon_can_witch:
@@ -57,7 +56,4 @@ class HUD:
         self.bar(player.health, player.stats["health"] * 10, self.hp_bar_rect, "red")
         self.bar(player.mana, player.stats["mana"] * 10, self.mana_bar_rect, "blue")
         self.screen.blit(self.bars, self.bars_rect)
-        self.selection(self.screen.get_width()*0.035, self.screen.get_height()*0.9, player)
-        # print(player.mana, player.stats["mana"])
-
-        # self.xp(player.xp)
+        self.selection(self.screen.get_width() * 0.035, self.screen.get_height() * 0.9, player)

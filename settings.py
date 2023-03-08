@@ -40,12 +40,14 @@ spell_info = {
 }
 
 enemy_info = {
-    "bigraccoon": {"health": 400, "xp": 70, "damage": 40, "speed": 3, "attack_radius": 100,
+    "bigraccoon": {"health": 600, "xp": 60, "damage": 40, "speed": 3, "attack_radius": 150,
                    "vision_radius": 290, "attack_type": "claw"},
-    "bigfrog": {"health": 300, "xp": 50, "damage": 30, "speed": 3, "attack_radius": 270,
+    "bigfrog": {"health": 400, "xp": 50, "damage": 30, "speed": 3, "attack_radius": 270,
                 "vision_radius": 340, "attack_type": "ball", },
     "skeleton": {"health": 250, "xp": 45, "damage": 20, "speed": 3, "attack_radius": 70,
-                 "vision_radius": 250, "attack_type": "bone", }
+                 "vision_radius": 250, "attack_type": "bone", },
+    "knight": {"health": 1400, "xp": 110, "damage": 70, "speed": 3, "attack_radius": 80,
+               "vision_radius": 290, "attack_type": "swordy", }
 }
 
 sounds = {
@@ -53,6 +55,7 @@ sounds = {
     "slash": pygame.mixer.Sound("sounds/slash.wav"),
     "frog": pygame.mixer.Sound("sounds/frog.wav"),
     "bone": pygame.mixer.Sound("sounds/bone.wav"),
+    "swordy": pygame.mixer.Sound("sounds/sword.wav"),
     "thunder": pygame.mixer.Sound("sounds/thunder.wav"),
     "leaf": pygame.mixer.Sound("sounds/leaf.wav"),
     "ice": pygame.mixer.Sound("sounds/ice.wav"),
@@ -64,8 +67,15 @@ sounds = {
     "switch": pygame.mixer.Sound("sounds/swap.wav"),
     "poof": pygame.mixer.Sound("sounds/poof.wav"),
     "skeleton": pygame.mixer.Sound("sounds/skeleton.wav"),
+    "knight": pygame.mixer.Sound("sounds/thud.wav"),
 
 }
+
+exit_coordinates = {
+    "room": (2000, 4730),
+    "cave": (3270, 6480)
+}
+
 for sound in sounds:
     sounds[sound].set_volume(0.2)
 sounds["switch"].set_volume(0.1)
