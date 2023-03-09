@@ -25,10 +25,10 @@ FONT_SIZE = 20
 FONT_COLOR = "black"
 
 weapon_info = {
-    "sai": {"cd": 150, "damage": 25, "image": "pictures/weapons/sai/full.png"},
-    "lance": {"cd": 300, "damage": 50, "image": "pictures/weapons/lance/full.png"},
-    "sword": {"cd": 250, "damage": 40, "image": "pictures/weapons/sword/full.png"},
-    "stick": {"cd": 200, "damage": 20, "image": "pictures/weapons/stick/full.png"}
+    "sai": {"cd": 150, "damage": 35, "image": "pictures/weapons/sai/full.png"},
+    "lance": {"cd": 500, "damage": 65, "image": "pictures/weapons/lance/full.png"},
+    "sword": {"cd": 300, "damage": 60, "image": "pictures/weapons/sword/full.png"},
+    "stick": {"cd": 200, "damage": 25, "image": "pictures/weapons/stick/full.png"}
 }
 
 spell_info = {
@@ -40,13 +40,13 @@ spell_info = {
 }
 
 enemy_info = {
-    "bigraccoon": {"health": 600, "xp": 60, "damage": 40, "speed": 3, "attack_radius": 150,
+    "bigraccoon": {"health": 600, "xp": 60, "damage": 40, "speed": 3, "attack_radius": 80,
                    "vision_radius": 290, "attack_type": "claw"},
-    "bigfrog": {"health": 400, "xp": 50, "damage": 30, "speed": 3, "attack_radius": 270,
-                "vision_radius": 340, "attack_type": "ball", },
+    "bigfrog": {"health": 400, "xp": 50, "damage": 30, "speed": 3, "attack_radius": 300,
+                "vision_radius": 350, "attack_type": "ball", },
     "skeleton": {"health": 250, "xp": 45, "damage": 20, "speed": 3, "attack_radius": 70,
                  "vision_radius": 250, "attack_type": "bone", },
-    "knight": {"health": 1400, "xp": 110, "damage": 70, "speed": 3, "attack_radius": 80,
+    "knight": {"health": 1400, "xp": 110, "damage": 70, "speed": 3, "attack_radius": 70,
                "vision_radius": 290, "attack_type": "swordy", }
 }
 

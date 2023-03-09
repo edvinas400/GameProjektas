@@ -34,8 +34,8 @@ class Enemy2(Creature):
         self.hurt_cd = 400
 
     def distance_direction_get(self, player):
-        enemy_vec = pygame.math.Vector2(self.rect.center)
-        player_vec = pygame.math.Vector2(player.rect.center)
+        enemy_vec = pygame.math.Vector2(self.hitbox.center)
+        player_vec = pygame.math.Vector2(player.hitbox.center)
         distance = (player_vec - enemy_vec).magnitude()
         if distance > 0:
             direction = (player_vec - enemy_vec).normalize()
