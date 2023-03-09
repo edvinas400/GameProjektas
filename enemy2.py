@@ -31,7 +31,7 @@ class Enemy2(Creature):
         self.attack_time = None
         self.vulnerable = True
         self.hurt_time = None
-        self.hurt_cd = 400
+        self.hurt_cd = 800
 
     def distance_direction_get(self, player):
         enemy_vec = pygame.math.Vector2(self.hitbox.center)

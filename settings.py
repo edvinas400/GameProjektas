@@ -26,7 +26,7 @@ FONT_COLOR = "black"
 
 weapon_info = {
     "sai": {"cd": 150, "damage": 35, "image": "pictures/weapons/sai/full.png"},
-    "lance": {"cd": 500, "damage": 65, "image": "pictures/weapons/lance/full.png"},
+    "lance": {"cd": 400, "damage": 65, "image": "pictures/weapons/lance/full.png"},
     "sword": {"cd": 300, "damage": 60, "image": "pictures/weapons/sword/full.png"},
     "stick": {"cd": 200, "damage": 25, "image": "pictures/weapons/stick/full.png"}
 }

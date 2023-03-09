@@ -21,7 +21,7 @@ class Player(Creature):
 
         # attack
         self.switch_cd = 400
-        self.attack_cd = 400
+        self.attack_cd = 390
         self.attack_time = None
         self.attack = attack
         self.attack_delete = attack_delete
