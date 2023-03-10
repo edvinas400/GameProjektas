@@ -92,6 +92,11 @@ class Level:
                                        [self.visible_stuff, self.player_attackables, self.enemies],
                                        self.obstacles, self.damage_player, self.death_particles,
                                        self.enemy_projectile)
+                            elif col == "19":
+                                Enemy3("bee", (x, y),
+                                       [self.visible_stuff, self.player_attackables, self.enemies],
+                                       self.obstacles, self.damage_player, self.death_particles,
+                                       self.enemy_projectile)
                             # portals
                             elif col == "261":
                                 portal = pygame.sprite.Sprite()
@@ -168,7 +173,7 @@ class Level:
             if self.player.health <= 0:
                 self.player.health = 0
             self.player.vulnerable = False
-            if attack_type in ["bone", "swordy", "punch"]:
+            if attack_type in ["bone", "swordy", "punch", "sting"]:
                 sounds[attack_type].play()
             self.player.hurt_time = pygame.time.get_ticks()
             self.animation_player.create_particles(attack_type, self.player.rect.center,

@@ -36,6 +36,7 @@ class ParticlePlayer:
             "claw": folder_content("pictures/particles/claw"),
             "ball": folder_content("pictures/particles/fire/fire"),
             "punch": folder_content("pictures/particles/punch"),
+            "sting": folder_content("pictures/particles/slash"),
 
             "bigraccoon": folder_content("pictures/particles/smokehuge"),
             "bigfrog": folder_content("pictures/particles/smokebig"),
@@ -44,7 +45,7 @@ class ParticlePlayer:
             "knight": folder_content("pictures/particles/deadknight"),
             "frog": folder_content("pictures/particles/deadfrog"),
             "santa": folder_content("pictures/particles/smoke"),
-
+            "bee": folder_content("pictures/particles/smoke"),
         }
 
     def create_particles(self, type, position, groups):

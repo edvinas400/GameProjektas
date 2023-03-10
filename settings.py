@@ -32,7 +32,7 @@ weapon_info = {
 }
 
 spell_info = {
-    "thunder": {"cost": 0, "power": 30, "image": "pictures/particles/ScrollThunder.png"},
+    "thunder": {"cost": 10, "power": 30, "image": "pictures/particles/ScrollThunder.png"},
     "leaf": {"cost": 10, "power": 30, "image": "pictures/particles/ScrollPlant.png"},
     "ice": {"cost": 10, "power": 30, "image": "pictures/particles/ScrollIce.png"},
     "fireball": {"cost": 10, "power": 30, "image": "pictures/particles/ScrollFire.png"},
@@ -44,14 +44,16 @@ enemy_info = {
                    "vision_radius": 290, "attack_type": "claw"},
     "bigfrog": {"health": 400, "xp": 50, "damage": 30, "speed": 3, "attack_radius": 300,
                 "vision_radius": 350, "attack_type": "ball", },
-    "skeleton": {"health": 250, "xp": 40, "damage": 20, "speed": 3, "attack_radius": 70,
+    "skeleton": {"health": 250, "xp": 40, "damage": 30, "speed": 3, "attack_radius": 70,
                  "vision_radius": 250, "attack_type": "bone", },
     "knight": {"health": 1400, "xp": 110, "damage": 70, "speed": 3, "attack_radius": 70,
                "vision_radius": 290, "attack_type": "swordy", },
     "santa": {"health": 300, "xp": 50, "damage": 30, "speed": 3, "attack_radius": 60,
               "vision_radius": 210, "attack_type": "punch", },
     "frog": {"health": 250, "xp": 50, "damage": 40, "speed": 3, "attack_radius": 70,
-             "vision_radius": 200, "attack_type": "swordy", }
+             "vision_radius": 200, "attack_type": "swordy", },
+    "bee": {"health": 100, "xp": 20, "damage": 10, "speed": 3, "attack_radius": 70,
+            "vision_radius": 250, "attack_type": "swordy", }
 }
 
 sounds = {
@@ -74,6 +76,7 @@ sounds = {
     "knight": pygame.mixer.Sound("sounds/thud.wav"),
     "frog": pygame.mixer.Sound("sounds/croak.wav"),
     "punch": pygame.mixer.Sound("sounds/punch.wav"),
+    "bee": pygame.mixer.Sound("sounds/bee.wav"),
 
 }
 
