@@ -35,12 +35,15 @@ class ParticlePlayer:
             "swordy": folder_content("pictures/particles/slash"),
             "claw": folder_content("pictures/particles/claw"),
             "ball": folder_content("pictures/particles/fire/fire"),
+            "punch": folder_content("pictures/particles/punch"),
 
             "bigraccoon": folder_content("pictures/particles/smokehuge"),
             "bigfrog": folder_content("pictures/particles/smokebig"),
             "skeleton": folder_content("pictures/particles/deadbones"),
             "player": folder_content("pictures/particles/deadplayer"),
             "knight": folder_content("pictures/particles/deadknight"),
+            "frog": folder_content("pictures/particles/deadfrog"),
+            "santa": folder_content("pictures/particles/smoke"),
 
         }
 

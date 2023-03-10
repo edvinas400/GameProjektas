@@ -1,7 +1,6 @@
 from creature import *
 import copy
 
-
 class Enemy(Creature):
     def __init__(self, name, position, groups, obstacles, damage_player, death_particles, enemy_projectile):
         super().__init__(groups)
@@ -9,9 +8,9 @@ class Enemy(Creature):
         self.enemy_images(name)
         self.status = "still"
         self.image = self.animations[self.status][self.frame_id]
-        self.rect = self.image.get_rect(topleft=position)
+        self.rect = self.image.get_rect(center=position)
         self.hitbox = copy.deepcopy(self.rect)
-        self.hitbox.update(self.hitbox.x, self.hitbox.y + 124, 128, 80)
+        self.hitbox.update(self.hitbox.x, self.hitbox.y, 140, 60)
         self.obstacles = obstacles
 
         # stats

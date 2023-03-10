@@ -32,7 +32,7 @@ weapon_info = {
 }
 
 spell_info = {
-    "thunder": {"cost": 10, "power": 30, "image": "pictures/particles/ScrollThunder.png"},
+    "thunder": {"cost": 0, "power": 30, "image": "pictures/particles/ScrollThunder.png"},
     "leaf": {"cost": 10, "power": 30, "image": "pictures/particles/ScrollPlant.png"},
     "ice": {"cost": 10, "power": 30, "image": "pictures/particles/ScrollIce.png"},
     "fireball": {"cost": 10, "power": 30, "image": "pictures/particles/ScrollFire.png"},
@@ -44,16 +44,20 @@ enemy_info = {
                    "vision_radius": 290, "attack_type": "claw"},
     "bigfrog": {"health": 400, "xp": 50, "damage": 30, "speed": 3, "attack_radius": 300,
                 "vision_radius": 350, "attack_type": "ball", },
-    "skeleton": {"health": 250, "xp": 45, "damage": 20, "speed": 3, "attack_radius": 70,
+    "skeleton": {"health": 250, "xp": 40, "damage": 20, "speed": 3, "attack_radius": 70,
                  "vision_radius": 250, "attack_type": "bone", },
     "knight": {"health": 1400, "xp": 110, "damage": 70, "speed": 3, "attack_radius": 70,
-               "vision_radius": 290, "attack_type": "swordy", }
+               "vision_radius": 290, "attack_type": "swordy", },
+    "santa": {"health": 300, "xp": 50, "damage": 30, "speed": 3, "attack_radius": 60,
+               "vision_radius": 210, "attack_type": "punch", },
+    "frog": {"health": 250, "xp": 50, "damage": 40, "speed": 3, "attack_radius": 70,
+              "vision_radius": 200, "attack_type": "swordy", }
 }
 
 sounds = {
     "hit": pygame.mixer.Sound("sounds/hit.wav"),
     "slash": pygame.mixer.Sound("sounds/slash.wav"),
-    "frog": pygame.mixer.Sound("sounds/frog.wav"),
+    "bigfrog": pygame.mixer.Sound("sounds/frog.wav"),
     "bone": pygame.mixer.Sound("sounds/bone.wav"),
     "swordy": pygame.mixer.Sound("sounds/sword.wav"),
     "thunder": pygame.mixer.Sound("sounds/thunder.wav"),
@@ -68,6 +72,8 @@ sounds = {
     "poof": pygame.mixer.Sound("sounds/poof.wav"),
     "skeleton": pygame.mixer.Sound("sounds/skeleton.wav"),
     "knight": pygame.mixer.Sound("sounds/thud.wav"),
+    "frog": pygame.mixer.Sound("sounds/croak.wav"),
+    "punch": pygame.mixer.Sound("sounds/punch.wav"),
 
 }
 
@@ -79,7 +85,8 @@ exit_coordinates = {
 for sound in sounds:
     sounds[sound].set_volume(0.2)
 sounds["switch"].set_volume(0.1)
-sounds["frog"].set_volume(0.05)
+sounds["bigfrog"].set_volume(0.05)
+sounds["frog"].set_volume(0.4)
 sounds["skeleton"].set_volume(0.05)
 
 

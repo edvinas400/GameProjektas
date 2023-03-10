@@ -57,5 +57,7 @@ class Creature(pygame.sprite.Sprite):
             player.xp += self.stats["xp"]
             player.check_lvl_up()
             self.kill()
-            if self.name in ("bigraccoon", "bigfrog"):
+            if self.name in ("bigraccoon", "bigfrog", "santa"):
                 sounds["poof"].play()
+            else:
+                sounds[self.name].play()

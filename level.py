@@ -5,6 +5,7 @@ from particles import *
 from hud import HUD
 from enemy import Enemy
 from enemy2 import Enemy2
+from enemy3 import Enemy3
 from weapon import Weapon
 from magic import Magic
 from enemy_projectiles import EnemyProjectile
@@ -81,6 +82,16 @@ class Level:
                                        [self.visible_stuff, self.player_attackables, self.enemies],
                                        self.obstacles, self.enemy_attack,
                                        self.enemy_attack_delete, self.death_particles)
+                            elif col == "10":
+                                Enemy3("frog", (x, y),
+                                       [self.visible_stuff, self.player_attackables, self.enemies],
+                                       self.obstacles, self.damage_player, self.death_particles,
+                                       self.enemy_projectile)
+                            elif col == "11":
+                                Enemy3("santa", (x, y),
+                                       [self.visible_stuff, self.player_attackables, self.enemies],
+                                       self.obstacles, self.damage_player, self.death_particles,
+                                       self.enemy_projectile)
                             # portals
                             elif col == "261":
                                 portal = pygame.sprite.Sprite()
@@ -157,7 +168,7 @@ class Level:
             if self.player.health <= 0:
                 self.player.health = 0
             self.player.vulnerable = False
-            if attack_type in ["bone", "swordy"]:
+            if attack_type in ["bone", "swordy", "punch"]:
                 sounds[attack_type].play()
             self.player.hurt_time = pygame.time.get_ticks()
             self.animation_player.create_particles(attack_type, self.player.rect.center,
@@ -181,7 +192,7 @@ class Level:
             if hits:
                 for hit in hits:
                     if hit.spell == "ball":
-                        sounds["frog"].play()
+                        sounds["bigfrog"].play()
                         self.damage_player(enemy_info[hit.caster.name]["damage"], enemy_info[
                             hit.caster.name]["attack_type"])
                         hit.kill()
