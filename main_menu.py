@@ -29,7 +29,6 @@ class MainMenu:
                 self.buttons.append(button)
         self.float_v = self.title_rect.centery
 
-
     def display(self, game):
         self.title_rect.centery = self.float_v + float(6, 400)
         self.screen.blit(self.background, self.background_rect)

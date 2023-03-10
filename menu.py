@@ -42,4 +42,3 @@ class Menu:
                     del level
                     pygame.time.delay(300)
                     menu_music()
-

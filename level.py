@@ -261,8 +261,10 @@ class Level:
                     self.stage = "floor_done"
 
             stats, level, xp, lvlup_points, health, mana, weapon_id, spell_id = [self.player.stats, self.player.level,
-                                                                                        self.player.xp,
-            self.player.lvlup_points, self.player.health, self.player.mana,  self.player.weapon_id, self.player.spell_id]
+                                                                                 self.player.xp,
+                                                                                 self.player.lvlup_points, self.player.health,
+                                                                                 self.player.mana, self.player.weapon_id,
+                                                                                 self.player.spell_id]
             self.update()
             self.game.level = self
             self.player.weapon_id = weapon_id
@@ -279,7 +281,6 @@ class Level:
             if self.stage == "floor_done" and last_stage:
                 self.player.hitbox.x = exit_coordinates[last_stage][0]
                 self.player.hitbox.y = exit_coordinates[last_stage][1]
-
 
     def run(self):
         self.change_location()

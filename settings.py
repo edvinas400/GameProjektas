@@ -49,9 +49,9 @@ enemy_info = {
     "knight": {"health": 1400, "xp": 110, "damage": 70, "speed": 3, "attack_radius": 70,
                "vision_radius": 290, "attack_type": "swordy", },
     "santa": {"health": 300, "xp": 50, "damage": 30, "speed": 3, "attack_radius": 60,
-               "vision_radius": 210, "attack_type": "punch", },
+              "vision_radius": 210, "attack_type": "punch", },
     "frog": {"health": 250, "xp": 50, "damage": 40, "speed": 3, "attack_radius": 70,
-              "vision_radius": 200, "attack_type": "swordy", }
+             "vision_radius": 200, "attack_type": "swordy", }
 }
 
 sounds = {

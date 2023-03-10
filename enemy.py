@@ -1,6 +1,7 @@
 from creature import *
 import copy
 
+
 class Enemy(Creature):
     def __init__(self, name, position, groups, obstacles, damage_player, death_particles, enemy_projectile):
         super().__init__(groups)
