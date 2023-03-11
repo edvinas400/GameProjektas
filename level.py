@@ -93,7 +93,7 @@ class Level:
                                        self.obstacles, self.damage_player, self.death_particles,
                                        self.enemy_projectile)
                             elif col == "19":
-                                Enemy3("bee", (x, y),
+                                Enemy3("baby", (x, y),
                                        [self.visible_stuff, self.player_attackables, self.enemies],
                                        self.obstacles, self.damage_player, self.death_particles,
                                        self.enemy_projectile)
@@ -173,7 +173,7 @@ class Level:
             if self.player.health <= 0:
                 self.player.health = 0
             self.player.vulnerable = False
-            if attack_type in ["bone", "swordy", "punch", "sting"]:
+            if attack_type in ["bone", "swordy", "punch", "slap"]:
                 sounds[attack_type].play()
             self.player.hurt_time = pygame.time.get_ticks()
             self.animation_player.create_particles(attack_type, self.player.rect.center,
@@ -282,7 +282,6 @@ class Level:
             self.player.lvlup_points = lvlup_points
             self.player.health = health
             self.player.mana = mana
-
             if self.stage == "floor_done" and last_stage:
                 self.player.hitbox.x = exit_coordinates[last_stage][0]
                 self.player.hitbox.y = exit_coordinates[last_stage][1]

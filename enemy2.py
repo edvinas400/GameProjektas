@@ -9,6 +9,8 @@ class Enemy2(Creature):
         self.type = "enemy"
         self.enemy_images(name)
         self.status = "down"
+        if name == "knight":
+            self.status = "left"
         self.image = self.animations[self.status][self.frame_id]
         self.rect = self.image.get_rect(topleft=position)
         self.hitbox = copy.deepcopy(self.rect)

@@ -49,11 +49,11 @@ enemy_info = {
     "knight": {"health": 1400, "xp": 110, "damage": 70, "speed": 3, "attack_radius": 70,
                "vision_radius": 290, "attack_type": "swordy", },
     "santa": {"health": 300, "xp": 50, "damage": 30, "speed": 3, "attack_radius": 60,
-              "vision_radius": 210, "attack_type": "punch", },
+              "vision_radius": 240, "attack_type": "punch", },
     "frog": {"health": 250, "xp": 50, "damage": 40, "speed": 3, "attack_radius": 70,
              "vision_radius": 200, "attack_type": "swordy", },
-    "bee": {"health": 100, "xp": 20, "damage": 10, "speed": 3, "attack_radius": 70,
-            "vision_radius": 250, "attack_type": "swordy", }
+    "baby": {"health": 2000, "xp": 170, "damage": 60, "speed": 3, "attack_radius": 70,
+             "vision_radius": 250, "attack_type": "slap", }
 }
 
 sounds = {
@@ -72,11 +72,12 @@ sounds = {
     "gameover": pygame.mixer.Sound("sounds/gameover.wav"),
     "switch": pygame.mixer.Sound("sounds/swap.wav"),
     "poof": pygame.mixer.Sound("sounds/poof.wav"),
+    "baby": pygame.mixer.Sound("sounds/poof2.wav"),
     "skeleton": pygame.mixer.Sound("sounds/skeleton.wav"),
     "knight": pygame.mixer.Sound("sounds/thud.wav"),
     "frog": pygame.mixer.Sound("sounds/croak.wav"),
     "punch": pygame.mixer.Sound("sounds/punch.wav"),
-    "bee": pygame.mixer.Sound("sounds/bee.wav"),
+    "slap": pygame.mixer.Sound("sounds/slap.wav"),
 
 }
 
@@ -90,6 +91,8 @@ for sound in sounds:
 sounds["switch"].set_volume(0.1)
 sounds["bigfrog"].set_volume(0.05)
 sounds["frog"].set_volume(0.4)
+sounds["slap"].set_volume(0.1)
+sounds["baby"].set_volume(0.4)
 sounds["skeleton"].set_volume(0.05)
 
 
