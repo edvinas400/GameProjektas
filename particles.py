@@ -36,7 +36,7 @@ class ParticlePlayer:
             "claw": folder_content("pictures/particles/claw"),
             "ball": folder_content("pictures/particles/fire/fire"),
             "punch": folder_content("pictures/particles/punch"),
-            "slap": folder_content("pictures/particles/punch"),
+            "slap": folder_content("pictures/particles/slap"),
 
             "bigraccoon": folder_content("pictures/particles/smokehuge"),
             "bigfrog": folder_content("pictures/particles/smokebig"),

@@ -5,7 +5,7 @@ class EnemyProjectile(Projectile):
     def __init__(self, spell, caster, target, groups):
         super().__init__(spell, caster, groups)
         self.speed = 9
-        self.max_distance = 650
+        self.max_distance = 450
         self.direction = self.get_direction(target)
         self.animation = folder_content(f"pictures/particles/{self.spell}")
         self.image = self.animation[int(self.frame_id)]

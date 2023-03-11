@@ -42,14 +42,14 @@ class Player(Creature):
         self.spell = list(spell_info.keys())[self.spell_id]
 
         # stats
-        self.stats = {"health": 10, "mana": 10, "attack": 10, "magic": 5, "speed": 9, "max_xp": 120}
-        self.max_stats = {"health": 30, "mana": 30, "attack": 50, "magic": 30, "speed": 10, }
+        self.stats = {"health": 10, "mana": 10, "attack": 10, "magic": 10, "speed": 10, "max_xp": 120}
+        self.max_stats = {"health": 100, "mana": 100, "attack": 50, "magic": 50, "speed": 20, }
         self.level = 1
         self.lvlup_points = 0
         self.health = self.stats["health"] * 10
         self.mana = self.stats["mana"] * 10
         self.xp = 0
-        self.speed = self.stats["speed"]
+        self.speed = self.stats["speed"] * 0.5
         self.vulnerable = True
         self.hurt_time = None
         self.hurt_cd = 800
@@ -203,7 +203,7 @@ class Player(Creature):
 
     def update(self):
         self.input()
-        self.move(self.stats["speed"])
+        self.move(self.stats["speed"] * 0.5)
         self.mana_regen()
         self.cooldowns()
         self.status_get()

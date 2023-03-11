@@ -47,7 +47,7 @@ enemy_info = {
     "skeleton": {"health": 250, "xp": 40, "damage": 30, "speed": 3, "attack_radius": 70,
                  "vision_radius": 250, "attack_type": "bone", },
     "knight": {"health": 1400, "xp": 110, "damage": 70, "speed": 3, "attack_radius": 70,
-               "vision_radius": 290, "attack_type": "swordy", },
+               "vision_radius": 250, "attack_type": "swordy", },
     "santa": {"health": 300, "xp": 50, "damage": 30, "speed": 3, "attack_radius": 60,
               "vision_radius": 240, "attack_type": "punch", },
     "frog": {"health": 250, "xp": 50, "damage": 40, "speed": 3, "attack_radius": 70,
@@ -77,7 +77,7 @@ sounds = {
     "knight": pygame.mixer.Sound("sounds/thud.wav"),
     "frog": pygame.mixer.Sound("sounds/croak.wav"),
     "punch": pygame.mixer.Sound("sounds/punch.wav"),
-    "slap": pygame.mixer.Sound("sounds/slap.wav"),
+    "slap": pygame.mixer.Sound("sounds/clap.wav"),
 
 }
 
