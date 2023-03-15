@@ -42,8 +42,8 @@ spell_info = {
 enemy_info = {
     "bigraccoon": {"health": 600, "xp": 60, "damage": 40, "speed": 3, "attack_radius": 80,
                    "vision_radius": 290, "attack_type": "claw"},
-    "bigfrog": {"health": 400, "xp": 50, "damage": 30, "speed": 3, "attack_radius": 300,
-                "vision_radius": 350, "attack_type": "ball", },
+    "bigfrog": {"health": 400, "xp": 50, "damage": 30, "speed": 3, "attack_radius": 280,
+                "vision_radius": 330, "attack_type": "ball", },
     "skeleton": {"health": 250, "xp": 40, "damage": 30, "speed": 3, "attack_radius": 70,
                  "vision_radius": 250, "attack_type": "bone", },
     "knight": {"health": 1400, "xp": 110, "damage": 70, "speed": 3, "attack_radius": 70,
@@ -149,5 +149,5 @@ def town_music():
 
 def menu_music():
     pygame.mixer.music.load("music/theme.wav")
-    pygame.mixer.music.set_volume(0.2)
+    pygame.mixer.music.set_volume(0.15)
     pygame.mixer.music.play(-1)

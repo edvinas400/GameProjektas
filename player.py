@@ -42,7 +42,7 @@ class Player(Creature):
         self.spell = list(spell_info.keys())[self.spell_id]
 
         # stats
-        self.stats = {"health": 10, "mana": 10, "attack": 10, "magic": 10, "speed": 10, "max_xp": 120}
+        self.stats = {"health": 20, "mana": 10, "attack": 10, "magic": 10, "speed": 14, "max_xp": 120}
         self.max_stats = {"health": 100, "mana": 100, "attack": 50, "magic": 50, "speed": 20, }
         self.level = 1
         self.lvlup_points = 0
@@ -207,5 +207,5 @@ class Player(Creature):
         self.mana_regen()
         self.cooldowns()
         self.status_get()
-        # self.check_death()
+        self.check_death()
         self.animate()
